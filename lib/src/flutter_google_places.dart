@@ -226,6 +226,16 @@ class _AppBarPlacesAutoCompleteTextFieldState
   Widget build(BuildContext context) {
     final state = PlacesAutocompleteWidget.of(context);
     assert(state != null);
+    Color textColor = Theme
+        .of(context)
+        .brightness == Brightness.light
+        ? Colors.black87
+        : Colors.white70;
+    Color hintColor = Theme
+        .of(context)
+        .brightness == Brightness.light
+        ? Colors.black38
+        : Colors.white30;
 
     return Container(
         alignment: Alignment.topLeft,
@@ -234,13 +244,13 @@ class _AppBarPlacesAutoCompleteTextFieldState
           controller: state._queryTextController,
           autofocus: true,
           style: TextStyle(
-            color: Colors.white70,
+            color: textColor,
             fontSize: 16.0,
           ),
           decoration: InputDecoration(
             hintText: state.widget.hint,
             hintStyle: TextStyle(
-              color: Colors.white30,
+              color: hintColor,
               fontSize: 16.0,
             ),
             border: InputBorder.none,
